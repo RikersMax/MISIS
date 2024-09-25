@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+#misis {
+position: relative;
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+<img id="misis" src="misis.jpg">
+<script>
+misis.onclick = function() {
+	let start = Date.now();
+	let timer = setInterval(function() {
+		let timePassed = Date.now() - start;
+		console.log(timePassed)
+		misis.style.left = timePassed / 2 + 'px';
+		misis.style.top = timePassed / 3 + 'px';
+		if (timePassed > 1000) clearInterval(timer);
+	}, 20);
+}
+</script>
+</body>
+</html>
