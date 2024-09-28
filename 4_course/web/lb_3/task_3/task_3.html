@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	
+</head>
+<body>
+	<div id='gradient'>
+	<article>
+		<input type="range" id="1" min="0" max="255" step="1" value="00"
+		onchange="rgb_c('1', 'r', 'hex', 1)"> <label for="1" id="r" >0</label><br>
+		<input type="range" id="2" min="0" max="255" step="1" value="00"
+		onchange="rgb_c('2', 'g', 'hex', 1)"> <label for="2" id="g" >0</label><br>
+		<input type="range" id="3" min="0" max="255" step="1" value="00"
+		onchange="rgb_c('3', 'b', 'hex', 1)"> <label for="3" id="b" >0</label><br>
+		<div id="hex" style='background-color: white; width: fit-content;' >hex-1</div>
+	</article>
+	<hr>
+
+
+	<article>
+		<input type="range" id="1_" min="0" max="255" step="1" value="00"
+		onchange="rgb_c('1_', 'r_', 'hex_2', 2)"> <label for="1_" id="r_" >0</label><br>
+		<input type="range" id="2_" min="0" max="255" step="1" value="00"
+		onchange="rgb_c('2_', 'g_', 'hex_2', 2)"> <label for="2_" id="g_" >0</label><br>
+		<input type="range" id="3_" min="0" max="255" step="1" value="00"
+		onchange="rgb_c('3_', 'b_', 'hex_2', 2)"> <label for="3_" id="b_" >0</label><br>
+		<div id="hex_2">hex-2</div>
+	</article>
+	</div>
+	
+	
+</body>
+<script src="task_3.js" type="text/javascript"></script>
+</html>
