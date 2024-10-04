@@ -1,0 +1,18 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    colorize (0.8.1)
+    sqlite3 (2.1.0-x86_64-linux-gnu)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  colorize (~> 0.8.1)
+  sqlite3
+
+RUBY VERSION
+   ruby 3.3.1p55
+
+BUNDLED WITH
+   2.5.9
