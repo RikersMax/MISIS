@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		table{
+			border: solid 1px;
+			border-collapse: collapse;
+		}
+		table > tr, td, th {
+			border: solid 1px;
+		}
+	</style>
+</head>
+<body>
+	<article>
+		<section>
+			<p>parse => <a href="http://localhost:4567/data">http://localhost:4567/data</a>  ||  
+			<a href="http://172.17.0.2:4567/data">http://172.17.0.2:4567/data</a></p>
+			<p>Запись в бд происходит при каждом get запросе на http://localhost:4567/ </p>		
+		</section>
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<th>id</th>
+						<th>speed</th>
+						<th>runtime</th>
+						<th>direction</th>
+						<th>random_data</th>
+						<th>current_time_int</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<% @table.each do |arr| %>
+							<tr>
+								<% arr.each do |data| %>
+									<td><%= data %></td>
+								<% end %>
+							</tr>
+
+						<% end %>					
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</article>
+
+</body>
+</html>

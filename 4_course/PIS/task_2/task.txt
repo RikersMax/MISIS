@@ -1,0 +1,86 @@
+from flask import Flask, jsonify
+import random
+import time
+
+app = Flask(__name__)
+
+@app.route('/data', methods=['GET'])
+def get_data():
+    speed = random.uniform(1.0, 100.0)  # скорость от 1 до 100
+    runtime = time.time()  # время работы в секундах
+    direction = random.choice(['clockwise', 'counterclockwise'])  # направление вращения
+    random_data = random.randint(1, 100)  # случайные данные от 1 до 100
+
+    data = {
+        'speed': speed,
+        'runtime': runtime,
+        'direction': direction,
+        'random_data': random_data
+    }
+
+    return jsonify(data)
+
+if name == '__main__':
+    app.run(debug=True)
+
+
+
+
+    #====================
+
+
+
+import requests
+import sqlite3
+import time
+import random
+
+def get_db_connection():
+    conn = sqlite3.connect('data.db')
+    conn.row_factory = sqlite3.Row 
+    return conn
+
+def create_table():
+    conn = get_db_connection()
+    conn.execute('''
+        CREATE TABLE IF NOT EXISTS data (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            speed REAL,
+            runtime REAL,
+            direction TEXT,
+            random_data INTEGER,
+            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
+def fetch_and_save_data(url):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+
+        json_data = response.json()
+
+        speed = json_data.get('speed', random.uniform(1.0, 100.0))
+        runtime = time.time()
+        direction = json_data.get('direction', random.choice(['clockwise', 'counterclockwise']))
+        random_data = json_data.get('random_data', random.randint(1, 100))
+
+        conn = get_db_connection()
+        conn.execute('''
+            INSERT INTO data (speed, runtime, direction, random_data)
+            VALUES (?, ?, ?, ?)
+        ''', (speed, runtime, direction, random_data))
+        conn.commit()
+        conn.close()
+
+        print(f"Данные сохранены: {speed}, {runtime}, {direction}, {random_data}")
+
+    except requests.exceptions.RequestException as e:
+        print(f"Ошибка при запросе: {e}")
+
+if name == '__main__':
+    create_table() 
+    url = 'http://127.0.0.1:5000/data' 
+    fetch_and_save_data(url)    
