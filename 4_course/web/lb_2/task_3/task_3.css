@@ -1,0 +1,19 @@
+body {
+	padding: 0;
+	margin: 0;
+}
+
+.knopka {
+	width: 100px;
+  height: 100px;  
+  position: absolute;
+  background: red;
+}
+
+.content {
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	width: 100%; 
+	height: 900px;
+}

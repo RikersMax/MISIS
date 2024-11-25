@@ -1,0 +1,205 @@
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: #000;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.box .glitch {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 100px;
+  position: relative;
+  padding: 30px;
+}
+
+
+@keyframes glitch-before {
+  0% {
+    clip: rect(46px, auto, 44px, 30px);
+  }
+  5% {
+    clip: rect(18px, auto, 123px, 30px);
+  }
+  10% {
+    clip: rect(26px, auto, 147px, 30px);
+  }
+  15% {
+    clip: rect(72px, auto, 115px, 30px);
+  }
+  20% {
+    clip: rect(26px, auto, 13px, 30px);
+  }
+  25% {
+    clip: rect(124px, auto, 23px, 30px);
+  }
+  30% {
+    clip: rect(69px, auto, 27px, 30px);
+  }
+  35% {
+    clip: rect(7px, auto, 81px, 30px);
+  }
+  40% {
+    clip: rect(144px, auto, 45px, 30px);
+  }
+  45% {
+    clip: rect(126px, auto, 15px, 30px);
+  }
+  50% {
+    clip: rect(4px, auto, 84px, 30px);
+  }
+  55% {
+    clip: rect(86px, auto, 86px, 30px);
+  }
+  60% {
+    clip: rect(101px, auto, 134px, 30px);
+  }
+  65% {
+    clip: rect(38px, auto, 107px, 30px);
+  }
+  70% {
+    clip: rect(20px, auto, 70px, 30px);
+  }
+  75% {
+    clip: rect(29px, auto, 54px, 30px);
+  }
+  80% {
+    clip: rect(143px, auto, 41px, 30px);
+  }
+  85% {
+    clip: rect(133px, auto, 14px, 30px);
+  }
+  90% {
+    clip: rect(77px, auto, 114px, 30px);
+  }
+  95% {
+    clip: rect(39px, auto, 104px, 30px);
+  }
+  100% {
+    clip: rect(98px, auto, 59px, 30px);
+  }
+}
+@keyframes glitch-after {
+  0% {
+    clip: rect(146px, auto, 78px, 30px);
+  }
+  5% {
+    clip: rect(89px, auto, 120px, 30px);
+  }
+  10% {
+    clip: rect(26px, auto, 86px, 30px);
+  }
+  15% {
+    clip: rect(139px, auto, 26px, 30px);
+  }
+  20% {
+    clip: rect(41px, auto, 12px, 30px);
+  }
+  25% {
+    clip: rect(122px, auto, 43px, 30px);
+  }
+  30% {
+    clip: rect(82px, auto, 64px, 30px);
+  }
+  35% {
+    clip: rect(119px, auto, 80px, 30px);
+  }
+  40% {
+    clip: rect(69px, auto, 111px, 30px);
+  }
+  45% {
+    clip: rect(81px, auto, 37px, 30px);
+  }
+  50% {
+    clip: rect(61px, auto, 34px, 30px);
+  }
+  55% {
+    clip: rect(146px, auto, 136px, 30px);
+  }
+  60% {
+    clip: rect(9px, auto, 24px, 30px);
+  }
+  65% {
+    clip: rect(102px, auto, 137px, 30px);
+  }
+  70% {
+    clip: rect(77px, auto, 70px, 30px);
+  }
+  75% {
+    clip: rect(121px, auto, 11px, 30px);
+  }
+  80% {
+    clip: rect(69px, auto, 20px, 30px);
+  }
+  85% {
+    clip: rect(115px, auto, 18px, 30px);
+  }
+  90% {
+    clip: rect(41px, auto, 93px, 30px);
+  }
+  95% {
+    clip: rect(108px, auto, 120px, 30px);
+  }
+  100% {
+    clip: rect(56px, auto, 41px, 30px);
+  }
+}
+</style>
+
+<div class="box">
+   <h1 class="glitch" id="lr6">Work</h1>
+   <input type="button" value="Press" onclick="bclick()"></input>
+</div>
+<script>
+let num=0;
+function bclick(){
+	let gb = document.getElementById('lr6');
+	gb.innerHTML = num;
+    let styleEl = document.createElement('style');
+	document.body.appendChild(styleEl);
+	
+	document.querySelector('.glitch').classList.remove('.glitch:after');
+	document.querySelector('.glitch').classList.remove('.glitch:before');
+	
+	styleEl.innerHTML = `.glitch:after { 
+	content: '${num}'; 
+	color: #fff; 
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+	padding: 30px;
+	left: 3px;
+	text-shadow: -3px 0 red;
+	animation: glitch-after 2s linear 0s infinite alternate;
+	}\n`
+	
+	styleEl.innerHTML += `.glitch:before { 
+	content: '${num}'; 
+	color: #fff; 
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+	padding: 30px;
+	left: 3px;
+	text-shadow: -3px 0 green;
+	animation: glitch-before 2s linear 0s infinite alternate;
+	}`
+	
+	num++;
+}
+</script>

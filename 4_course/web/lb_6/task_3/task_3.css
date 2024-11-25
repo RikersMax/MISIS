@@ -1,0 +1,95 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #18191C;
+}
+
+.parent {
+  display: block;
+  width: 225px;
+  position: relative;
+}
+
+.child-container {
+  display: block;
+  width: 200px;
+  height: 200px;
+
+}
+
+.child-container {
+  margin: 25px;
+}
+
+.child {
+  border-radius: 25px;
+}
+.child-one {
+  position: absolute; z-index: 2;
+  width: 200px;
+  height: 200px;
+  background-color: #2E9AFF;
+  animation-name: circle-to-square;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  background: linear-gradient(-45deg,#99ffff 0,#44aaff 100%);
+  border: rgb(255, 20, 147) 0.125em solid;
+  box-shadow: inset 0 0 0.5em 0 rgb(255, 20, 147), 0 0 0.5em 0 rgb(255, 20, 147);
+  
+}
+
+.child-one:hover, .child-one:focus {
+outline: none;
+border: rgb(0, 0, 255) 0.25em solid;
+box-shadow: 0px 8px 4px 0px rgba(0,20,255,0.7),
+	  1px 2px 8px 0px rgba(0,40,235,0.7),
+	  6px 4px 16px 0px rgba(0,60,215,0.7),
+	  2px 16px 32px 0px rgba(0,80,195,0.7);
+cursor: text;
+}
+
+.child-back {
+opacity: 0;
+  position: absolute; z-index: 1;
+  width: 200px;
+  height: 200px;
+box-shadow: 0px 8px 4px 0px rgba(220,20,60,0.7),
+	  1px 2px 8px 0px rgba(200,40,80,0.7),
+	  6px 4px 16px 0px rgba(180,60,100,0.7),
+	  2px 16px 32px 0px rgba(160,80,120,0.7);
+filter: blur(1px);
+background: linear-gradient(-175deg,#44aaff 0,#66ccff 100%);
+animation: glow 3s infinite;
+animation-delay: 3s;
+}
+
+@keyframes circle-to-square {
+  0% {
+    width: 50px;
+    height: 50px;
+    background-color: #F498AD;
+  }
+  50% {
+    width: 50px;
+    height: 200px;
+    background-color: #7F6EDB;
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+    background-color: #2E9AFF;
+  }
+}
+
+@keyframes glow {
+ 0% { 
+   opacity: 0; 
+  }
+ 50% { 
+   opacity: 1;
+  }
+ 100% { 
+   opacity: 0; 
+  }
+}

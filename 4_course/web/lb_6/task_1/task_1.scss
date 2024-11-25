@@ -1,0 +1,65 @@
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: #000;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.box .glitch {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 100px;
+  position: relative;
+  padding: 30px;
+}
+
+
+&:BEFORE, &:AFTER {
+	CONTENT:'УСЛОВИЕ ПОЛУЧЕНИЯ АВТОМАТА';
+	COLOR:#FFFFFF;
+	POSITION: ABSOLUTE;
+	TOP:0;
+	OVERFLOW:HIDDEN;
+	PADDING:30PX;
+}
+
+&:BEFORE {
+	LEFT:3PX;
+	TEXT-SHADOW: -3PX 0 RED;
+	ANIMATION: GLITCH-BEFORE 2S LINEAR 0S INFINITE ALTERNATE;
+}
+
+&:AFTER {
+LEFT:-3PX;
+TEXT-SHADOW: -3PX 0 BLUE;
+ANIMATION: GLITCH-AFTER 2S LINEAR 0S INFINITE ALTERNATE;
+}
+}
+}
+
+@KEYFRAMES GLITCH-BEFORE {
+$STEPS: 20;
+@FOR $I FROM 0 THROUGH $STEPS {
+#{PERCENTAGE($I*(1/$STEPS))} {
+CLIP: RECT(RANDOM(150)+PX, 100+PX, RANDOM(150)+PX, 30PX)
+}
+}
+}
+
+@KEYFRAMES GLITCH-AFTER {
+$STEPS: 20;
+@FOR $I FROM 0 THROUGH $STEPS {
+#{PERCENTAGE($I*(1/$STEPS))} {
+CLIP: RECT(RANDOM(150)+PX, 100+PX, RANDOM(150)+PX, 30PX)
+}
+}
+}

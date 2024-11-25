@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="quest_1.css">
+  <script src="script_1.js"></script>
+  <h1>"Степень - 2"</h1>
+</head>
+
+<body>
+
+  <div id="path">
+    <div id="brick"></div>
+  </div>
+  <script>
+    brick.onclick = function() {
+      animate({
+        duration: 1000,
+        timing: function quad(timeFraction) {
+          return Math.pow(timeFraction, 2);
+        },
+        draw: function(progress) {
+          brick.style.left = progress * 500 + 'px';
+        }
+      });
+    };
+  </script>
+</body>
+</html>
